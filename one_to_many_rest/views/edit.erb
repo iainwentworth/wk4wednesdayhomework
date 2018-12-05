@@ -1,0 +1,22 @@
+<h1>Edit your Order</h1>
+
+<form action="/pizzas/<%= @order.id %>" method="post">
+  <input type="hidden" value="<%= @order.id %>">
+  <select name="customer_id">
+    <% for customer in @customers %>
+      <option <%= 'selected' if customer.id == @order.customer_id %> value="<%=customer.id %>"><%= customer.pretty_name() %> </option>
+    <% end %>
+  </select>
+
+  <label for="quantity">Quantity:</label>
+  <input type="number" name="quantity" value="<%= @order.quantity %>">
+
+  <label for="topping">Topping:</label>
+  <select name="topping">
+    <% for topping in @toppings %>
+      <option <%= 'selected' if topping == @order.topping %> value="<%=topping %>"><%= topping %> </option>
+    <% end %>
+  </select>
+
+  <input  type="submit" value="Edit Pizza">
+</form>

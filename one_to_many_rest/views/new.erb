@@ -1,0 +1,20 @@
+<h1>Create a new Order</h1>
+
+<form action="/pizzas" method="post">
+  <select name="customer_id">
+    <% for customer in @customers %>
+    <option value="<%=customer.id%>"><%= customer.pretty_name() %></option>
+    <% end %>
+  </select>
+
+  <label for="quantity">Quantity:</label>
+  <input type="number" name="quantity">
+
+  <label for="topping">Topping:</label>
+  <select name="topping">
+    <option value="Pepperoni">Pepperoni</option>
+    <option value="Calzone">Calzone</option>
+  </select>
+
+  <input type="submit" value="Order Pizza">
+</form>

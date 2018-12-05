@@ -1,0 +1,8 @@
+<h1>Aw the Pizzas!</h1>
+<% for order in @orders %>
+<div class="important">
+  <p>Name: <%= order.customer.pretty_name() %> </p>
+  <p>Order: <%= order.quantity %> x <%= order.topping %></p>
+  <p><a class="button" href="/pizzas/<%=order.id %>">Show Order</a></p>
+  </div>
+<% end %>
